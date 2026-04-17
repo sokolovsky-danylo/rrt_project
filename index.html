@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RRT Algorithm Demo</title>
+  <meta name="description" content="Interactive RRT (Rapidly-exploring Random Tree) path planning algorithm demo. Draw obstacles, set start and end points, and watch the algorithm find a path in real time.">
+  <meta name="keywords" content="RRT, path planning, algorithm, robotics, simulation, rapidly exploring random tree">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <h1>RRT Path Planner</h1>
+
+  <div id="main-layout">
+
+<div id="toolbar">
+      <button id="btn-wall" class="active"> Draw Obstacle</button>
+      <button id="btn-start"> Set Start</button>
+      <button id="btn-end"> Set End</button>
+      <button id="btn-run">▶ Run RRT</button>
+      <button id="btn-clear">🗑 Clear All</button>
+
+      <div class="slider-group">
+        <label>Step Size <span id="val-step">15</span>px</label>
+        <input type="range" id="slider-step" min="5" max="50" value="15" step="1">
+      </div>
+
+      <div class="slider-group">
+        <label>Goal Bias <span id="val-bias">10</span>%</label>
+        <input type="range" id="slider-bias" min="1" max="50" value="10" step="1">
+      </div>
+
+      <div class="slider-group">
+        <label>Anim Speed <span id="val-speed">5</span></label>
+        <input type="range" id="slider-speed" min="1" max="20" value="5" step="1">
+      </div>
+
+      <div id="status">Select a tool and click the canvas to begin.</div>
+    </div>
+
+    <canvas id="canvas" width="800" height="600"></canvas>
+
+  </div>
+
+  <div id="legend">
+    <div class="legend-item"><div class="dot" style="background:#2ecc71"></div> Start</div>
+    <div class="legend-item"><div class="dot" style="background:#e67e22"></div> End</div>
+    <div class="legend-item"><div class="dot" style="background:#e74c3c"></div> Wall</div>
+    <div class="legend-item"><div class="dot" style="background:#4a4a6a; border-radius:0"></div> RRT Tree</div>
+    <div class="legend-item"><div class="dot" style="background:#f1c40f; border-radius:0"></div> Path</div>
+  </div>
+
+  <script src="rrt.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>
